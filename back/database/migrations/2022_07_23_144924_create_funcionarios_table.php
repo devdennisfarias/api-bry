@@ -17,10 +17,10 @@ class CreateFuncionariosTable extends Migration
             $table->id();
             $table->string('login', 50);
             $table->string('nome', 100);
-            $table->string('cpf', 11);
-            $table->string('email', 50);
-            $table->date('endereco');
-            $table->date('senha');
+            $table->int('cpf', 11);
+            $table->string('email')->unique();
+            $table->string('endereco');
+            $table->string('senha');
    
             $table->timestamps();
         });

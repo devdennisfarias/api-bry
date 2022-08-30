@@ -34,7 +34,7 @@ class EmpresaController extends Controller
         } 
         elseif ($request->query('relacoes') === 'clientes')
         {
-            $empresa = Empresa::with('clientes')->paginate(15);
+            $empresa = Empresa::with('cliente')->paginate(15);
         } else {
             $empresa = Empresa::paginate(15);
         }

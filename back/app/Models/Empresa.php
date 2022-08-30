@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Empresa extends Model
@@ -14,20 +15,19 @@ class Empresa extends Model
         'nome',
         'cnpj',
         'endereco',
-        'documento',
         'cliente_id',
         'funcionario_id',
     ];
 
 
-    public function funcionarios(): HasMany
+    public function funcionario(): BelongsToMany
     {
-        return $this->hasMany(Funcionario::class);
+        return $this->belongsToMany(Funcionario::class);
     }
 
-    public function clientes(): HasMany
+    public function cliente(): BelongsToMany
     {
-        return $this->hasMany(Cliente::class);
+        return $this->belongsToMany(Cliente::class);
     }
 
 }

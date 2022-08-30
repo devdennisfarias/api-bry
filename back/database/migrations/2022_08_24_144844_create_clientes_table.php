@@ -15,12 +15,13 @@ class CreateClientesTable extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
+            $table->string('login', 50);
             $table->string('nome', 100);
-            $table->string('endereco', 100);
-            $table->string('email');
-            $table->string('telefone', 11);
-            $table->date('data_nascimento');
-            $table->char('genero', 1);
+            $table->int('cpf', 11);
+            $table->string('email')->unique();
+            $table->string('endereco');
+            $table->string('senha');
+   
             $table->timestamps();
         });
     }
